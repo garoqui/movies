@@ -57,7 +57,7 @@ export class MovieShop extends LitElement {
 
   constructor() {
     super();
-    this.title = 'My app';
+    this.title = 'Movies';
   }
 
   render() {
@@ -67,25 +67,12 @@ export class MovieShop extends LitElement {
         <h1>${this.title}</h1>
       <app-mainmenu></app-mainmenu> 
 
-        <p>Edit <code>src/MovieShop.js</code> and save to reload.</p>
-        <a
-          class="app-link"
-          href="https://open-wc.org/guides/developing-components/code-examples/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Code examples
-        </a>
+        <p>Pagina en construcción....</p>
+        
       </main>
 
       <p class="app-footer">
-        🚽 Made with love by
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://github.com/open-wc"
-          >open-wc</a
-        >.
+        Footer en construccion........
       </p>
     `;
   }
