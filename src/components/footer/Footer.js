@@ -54,16 +54,28 @@ export class Footer extends LitElement {
       <h1>${this.itemsFooter[0].head}</h1>
       <div class="container-columns">
         <div>
-          ${this.itemsFooter[1].firstColumn.map(res => html`<li>${res}</li>`)}
+          <ul>
+            ${this.itemsFooter[1].firstColumn.map(res => html`<li>${res}</li>`)}
+          </ul>
         </div>
         <div>
-          ${this.itemsFooter[2].secondColumn.map(res => html`<li>${res}</li>`)}
+          <ul>
+            ${this.itemsFooter[2].secondColumn.map(
+              res => html`<li>${res}</li>`
+            )}
+          </ul>
         </div>
         <div>
-          ${this.itemsFooter[3].thirdColumn.map(res => html`<li>${res}</li>`)}
+          <ul>
+            ${this.itemsFooter[3].thirdColumn.map(res => html`<li>${res}</li>`)}
+          </ul>
         </div>
         <div>
-          ${this.itemsFooter[4].fourthColumn.map(res => html`<li>${res}</li>`)}
+          <ul>
+            ${this.itemsFooter[4].fourthColumn.map(
+              res => html`<li>${res}</li>`
+            )}
+          </ul>
         </div>
       </div>
     </div>`;

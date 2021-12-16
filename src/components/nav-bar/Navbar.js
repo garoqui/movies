@@ -75,6 +75,6 @@ export class Navbar extends LitElement{
         } else{
             this.menuIsOpen = "none"
         }
-        console.log(this.menuIsOpen)
+        
     } 
 }

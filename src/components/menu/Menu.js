@@ -53,7 +53,7 @@ export class Menu extends LitElement {
       </style>
       <div class="container">
         <div class="container-items-menu">
-          <nav>${this.itemsMenu.map(res => html`<li>${res}</li>`)}</nav>
+          <nav><ul>${this.itemsMenu.map(res => html`<li>${res}</li>`)}</ul></nav>
         </div>
       </div>`;
   }
