@@ -1,6 +1,11 @@
-import { LitElement, html, css } from 'lit'
-import './components/nav-bar/app-navbar.js'
-import './components/footer/app-footer.js'
+import { LitElement, html, css } from 'lit';
+import { Router } from '@vaadin/router';
+
+// components
+import './components/nav-bar/app-navbar.js';
+import './components/footer/app-footer.js';
+import './views/home/view-home.js'
+import './views/movies/view-movies.js'
 
 // const logo = new URL('assets/open-wc-logo.svg', import.meta.url).href;
 
@@ -25,6 +30,17 @@ export class MovieShop extends LitElement {
     `;
   }
 
+  firstUpdated(){
+    const node = this.renderRoot.querySelector('main');
+    const router = new Router(node);
+
+    router.setRoutes([
+      { path : "/", component : "view-home"},
+      { path : "/home", component : "view-home"},
+      { path : "/movies", component : "view-movies"}
+    ])
+  }
+
   constructor() {
     super();
     this.title = 'Movies';
@@ -32,11 +48,13 @@ export class MovieShop extends LitElement {
 
   render() {
     return html`
+    <app-navbar></app-navbar>      
       <main>
-        <app-navbar></app-navbar>        
+          
       
-      <app-footer></app-footer>     
+      
       </main>
+      <app-footer></app-footer>    
     `;
   }
 }
