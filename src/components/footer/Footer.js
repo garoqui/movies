@@ -15,7 +15,7 @@ export class Footer extends LitElement {
         cursor: pointer;
       }
       .container {
-        position: fixed;
+        
         left: 0;
         bottom: 0;
         width: 100%;

@@ -4,7 +4,7 @@ import 'fa-icons';
 import '../menu/app-menu.js'
 
 
-// const logo = new URL('./assets/logo.png', import.meta.url).href;
+
 
 export class Navbar extends LitElement{
 
