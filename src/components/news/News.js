@@ -20,6 +20,12 @@ export class News extends LitElement {
     return css`
       .container {
         margin: 10px;
+        display: flex;
+        width: 100%;
+        justify-content: space-evenly;
+        row-gap: 5px;
+        column-gap: 40px;
+        padding: 10px;
       }
       .container-header {
         display: flex;
@@ -31,20 +37,18 @@ export class News extends LitElement {
   async firstUpdated() {
     const popularListMovies = await getMostPopularMovies();
     this.mostPopular = popularListMovies.slice(2, 7);
-    console.log(this.mostPopular);
   }
 
   render() {
     return html`
+      <div class="container-header">
+        <div><h1>News</h1></div>
+        <div><h3>Ver todas</h3></div>
+      </div>
       <div class="container">
-        <div class="container-header">
-          <div><h1>News</h1></div>
-          <div><h3>Ver todas</h3></div>
-        </div>
-        <app-card
-          .items=${this.mostPopular}
-          .kindOfList=${this.kindOfList}
-        ></app-card>
+        ${this.mostPopular.map(
+          res => html`<div><app-card .item=${res}></app-card></div>`
+        )}
       </div>
     `;
   }
