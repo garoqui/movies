@@ -6,6 +6,7 @@ import './components/nav-bar/app-navbar.js';
 import './components/footer/app-footer.js';
 import './views/home/view-home.js'
 import './views/movies/view-movies.js'
+import './views/searchResult/view-search-result.js'
 
 // const logo = new URL('assets/open-wc-logo.svg', import.meta.url).href;
 
@@ -37,7 +38,8 @@ export class MovieShop extends LitElement {
     router.setRoutes([
       { path : "/", component : "view-home"},
       { path : "/home", component : "view-home"},
-      { path : "/movies", component : "view-movies"}
+      { path : "/movies", component : "view-movies"},
+      { path : "/search", component : "view-search-result"}
     ])
   }
 
@@ -57,4 +59,14 @@ export class MovieShop extends LitElement {
       <app-footer></app-footer>    
     `;
   }
+
+  connectedCallback(){
+  super.connectedCallback();
+  window.addEventListener('app-search', (e)=>console.log(e))
+}
+
+disconnectedCallback() {
+  // window.removeEventListener('app-search', this._handleResize);
+  // super.disconnectedCallback();
+}
 }
