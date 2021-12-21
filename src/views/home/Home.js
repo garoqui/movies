@@ -54,7 +54,7 @@ export class Home extends LitElement {
 
   getSearch(e){
     this.search = e.detail
-    
+    console.log(e)
     console.log(this.search)
   }
 

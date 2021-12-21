@@ -1,5 +1,7 @@
 import { LitElement, html, css } from 'lit';
+import { Router } from '@vaadin/router';
 import { MOVIESIMGURLW500 } from '../../constants/api.js';
+
 import '../ranking/app-ranking.js';
 
 export class Card extends LitElement {
@@ -8,7 +10,7 @@ export class Card extends LitElement {
     this.item = {};
     this.imgMovie = '';
     this.kindOfList = '';
-    this.noimage = "/assets/no-image-found.png"
+    this.noimage = '/assets/no-image-found.png';
   }
 
   static get properties() {
@@ -16,7 +18,7 @@ export class Card extends LitElement {
       imgMovie: { type: String },
       items: { type: Object },
       kindOfList: { type: String },
-      noimage : { type : String}
+      noimage: { type: String },
     };
   }
 
@@ -25,13 +27,14 @@ export class Card extends LitElement {
       .container-card {
         overflow: hidden;
         margin: 2px;
+        cursor:pointer;
       }
 
       .container-card img {
         width: 100%;
         border-radius: 15px;
-        overflow:hidden;
-        height:100%;
+        overflow: hidden;
+        height: 100%;
       }
 
       .container-ranking {
@@ -48,11 +51,21 @@ export class Card extends LitElement {
     `;
   }
 
+  goDetail() {    
+    Router.go({
+      pathname: '/detail',
+      search: `?id=${this.item.id}&kind=${this.item.media_type}`,
+    });
+  }
+
   render() {
-    return html`<div class="container-card">
+    // eslint-disable-next-line lit-a11y/click-events-have-key-events
+    return html`<div class="container-card" @click=${this.goDetail}>
       <img
         alt=${this.item.title}
-        src=${this.item.backdrop_path ? MOVIESIMGURLW500 + this.item.backdrop_path : this.noimage}
+        src=${this.item.backdrop_path
+          ? MOVIESIMGURLW500 + this.item.backdrop_path
+          : this.noimage}
       />
       ${this.item.name
         ? html`<div><strong>${this.item.name}</strong></div>`
@@ -62,6 +75,5 @@ export class Card extends LitElement {
         <div><app-ranking .rate=${this.item.vote_average}></app-ranking></div>
       </div>
     </div>`;
-   
   }
 }

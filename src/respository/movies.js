@@ -10,7 +10,7 @@ const dateMonthsAgo = months => {
 // getting two most popular
 export const getMostPopular = async () => {
   let popularList = [];
-  popularList = await MOVIESENDPOINTS.getPopularMovies("1").then(
+  popularList = await MOVIESENDPOINTS.getPopularMovies('1').then(
     res => res.results
   );
   const resuMovies = popularList.filter(
@@ -18,7 +18,7 @@ export const getMostPopular = async () => {
   );
 
   let popularTvList = [];
-  popularTvList = await MOVIESENDPOINTS.getPopularSeries("1").then(
+  popularTvList = await MOVIESENDPOINTS.getPopularSeries('1').then(
     res => res.results
   );
   const resuSeries = popularTvList.filter(
@@ -33,7 +33,7 @@ export const getMostPopular = async () => {
 
 export const getMostPopularMovies = async () => {
   let popularList = [];
-  popularList = await MOVIESENDPOINTS.getPopularMovies("1").then(
+  popularList = await MOVIESENDPOINTS.getPopularMovies('1').then(
     res => res.results
   );
   const resuMovies = popularList.filter(
@@ -45,7 +45,7 @@ export const getMostPopularMovies = async () => {
 // getting most popular series
 export const getMostPopularTV = async () => {
   let popularTvList = [];
-  popularTvList = await MOVIESENDPOINTS.getPopularSeries("1").then(
+  popularTvList = await MOVIESENDPOINTS.getPopularSeries('1').then(
     res => res.results
   );
   const resuSeries = popularTvList.filter(
@@ -55,9 +55,20 @@ export const getMostPopularTV = async () => {
   return resuSeries;
 };
 
-export const getMulti = async (query)=>{
+export const getMulti = async query => {
   let multi = [];
-  multi = await MOVIESENDPOINTS.getMulti(query).then(res=>res)
-  console.log(multi)
-  return multi
+  multi = await MOVIESENDPOINTS.getMulti(query).then(res => res);
+  return multi;
+};
+
+export const getDetail = async (id,kind) => {
+
+  const detail = await MOVIESENDPOINTS.getDetail(id,kind).then(res => res);
+  return detail
+};
+
+export const getReparto = async(id,kind)=>{
+  const reparto = await MOVIESENDPOINTS.getReparto(id,kind).then(res=> res);
+  console.log(reparto)
+  return reparto;
 }
