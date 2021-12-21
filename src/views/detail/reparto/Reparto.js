@@ -97,7 +97,7 @@ export class Reparto extends LitElement {
         </div>
       </div>
     `;
-  }
+  } 
 
   lessMarginSlider(){
       this.marginSlider-= 100
