@@ -1,7 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { getMulti } from '../../respository/movies.js';
 import '../../components/card/app-card.js';
-import '../../components/PagesControl/app-pages-control.js'
+import '../../components/PagesControl/app-pages-control.js';
 
 export class SearchResult extends LitElement {
   constructor() {
@@ -47,6 +47,7 @@ export class SearchResult extends LitElement {
     const query = params.get('query');
     this.items = await getMulti(query).then(res => res);
     this.resu = await this.changeOrder();
+    console.log(this.resu)
   }
 
   async changeOrder() {
@@ -59,6 +60,7 @@ export class SearchResult extends LitElement {
         resu.push(series[index]);
       }
     });
+
     return resu;
   }
 
@@ -66,14 +68,16 @@ export class SearchResult extends LitElement {
     return html`<div class="container-header"><h1>Mi lista</h1></div>
       <div class="container">      
         ${this.resu.map(
-          (res) =>
+          res =>
             html`<div class="container-item">
               <app-card .item=${res}></app-card>
             </div>`
         )} 
                
         </div> 
-        <div class="container-pages"></div><app-pages-control .items=${this.items}></app-pages-control>       
+        <div class="container-pages"></div><app-pages-control .items=${
+          this.items
+        }></app-pages-control>       
       </div>`;
   }
 }
