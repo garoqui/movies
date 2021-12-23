@@ -83,7 +83,7 @@ export class Reparto extends LitElement {
       <div class="container">
         <div class="container-flechas">
           <fa-icon @click=${this.lessMarginSlider} class="fa fa-angle-left fa-lg"></fa-icon>
-          <fa-icon @click=${this.addMarginSlider} class="fa fa-angle-right fa-lg"></fa-icon>
+            
         </div>
         <div class="container-reparto margin-container">
           ${this.reparto.map(
