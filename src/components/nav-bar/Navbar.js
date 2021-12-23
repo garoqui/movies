@@ -68,7 +68,7 @@ export class Navbar extends LitElement {
         <div class="container-button-menu">
           <!-- eslint-disable-next-line lit-a11y/click-events-have-key-events -->
           <span @click=${this.startSesion}>Iniciar Sesion </span>
-          <span>Cerrar Sesion </span>
+          <span @click=${this.closeSesion}> Cerrar Sesion </span>
           <fa-icon class="fas fa-bars" @click=${this.showMenu}></fa-icon>
         </div>
       </div>
@@ -88,5 +88,9 @@ export class Navbar extends LitElement {
     const token = await login().then(res=>res);
     localStorage.setItem("token",token.request_token)
     console.log(token)
+  }
+
+   closeSesion(){
+      localStorage.removeItem("token")
   }
 }

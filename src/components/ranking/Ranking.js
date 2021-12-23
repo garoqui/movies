@@ -23,32 +23,29 @@ export class Ranking extends LitElement {
         filter: grayscale(100%);
       }
 
-      .active{
-            opacity:1;
-            filter : grayscale(5%);
-        }
+      .active {
+        opacity: 1;
+        filter: grayscale(5%);
+      }
     `;
   }
 
   firstUpdated() {
     for (let i = 0; i < 5; i += 1) {
-      this.stars.push(html`<fa-icon class="fa fa-star ${this.setActive(i)}"></fa-icon>`);
+      this.stars.push(
+        html`<fa-icon class="fa fa-star ${this.setActive(i)}"></fa-icon>`
+      );
     }
 
-
     this.update();
-    // .stars = starsHTML.setList()
-    // console.log(starsHTML.setList())
   }
 
   render() {
-    return html`
-      <div>${this.stars.map(res => html`${res}`)}</div>      
-    `;
+    return html` <div>${this.stars.map(res => html`${res}`)}</div> `;
   }
 
-  setActive(index){
-      const starsNumber= Math.trunc(this.rate)/ 2;
-      return index < starsNumber ? "active" : ""
+  setActive(index) {
+    const starsNumber = Math.trunc(this.rate) / 2;
+    return index < starsNumber ? 'active' : '';
   }
 }
