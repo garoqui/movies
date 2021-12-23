@@ -87,17 +87,11 @@ export class Card extends connect(store)(LitElement) {
   }
 
   stateChanged(state) {
-    console.log(state.reducer.favorites);
     this.favorites = state.reducer.favorites;
-    console.log(this.favorites);
   }
 
   isFavorite(item) {
-    console.log(this.favorites);
-    console.log(item.id);
-    this.favorites.forEach(e => console.log(e.task.id));
     const resu = this.favorites.find(favorite => favorite.task.id === item.id);
-    console.log(resu);
     if (resu) {
       return true;
     }
