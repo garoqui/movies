@@ -81,10 +81,16 @@ export class Card extends connect(store)(LitElement) {
     });
   }
 
+<<<<<<< Updated upstream
   setFavorite() {
     store.dispatch(addFavorite(this.item));
     this.isFavorite(this.item);
   }
+=======
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 
   stateChanged(state) {
     this.favorites = state.reducer.favorites;
@@ -98,6 +104,10 @@ export class Card extends connect(store)(LitElement) {
     return false;
   }
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
   render() {
     // eslint-disable-next-line lit-a11y/click-events-have-key-events
     return html`<div class="container-card">
@@ -113,26 +123,45 @@ export class Card extends connect(store)(LitElement) {
           : html`<div><strong>${this.item.title}</strong></div>`}
       </div>
       <div class="container-ranking">
+<<<<<<< Updated upstream
+=======
+<<<<<<< Updated upstream
+        <div>${this.item.vote_average}</div>
+        <div><app-ranking .rate=${this.item.vote_average}></app-ranking></div>
+=======
+>>>>>>> Stashed changes
         <div class="rk-1">${this.item.vote_average}</div>
         <div class="rk-2">
           <app-ranking .rate=${this.item.vote_average}></app-ranking>
         </div>
         <div>
           ${this.isFavorite(this.item)
+<<<<<<< Updated upstream
             ? html` <div class="rk-3" @click=${this.setFavorite}>
+=======
+            ? html` <div class="rk-3" >
+>>>>>>> Stashed changes
                 <fa-icon
                   @click=${this.addMarginSlider}
                   class="fa fa-heart  isfavorite"
                 ></fa-icon>
                 <div></div>
               </div>`
+<<<<<<< Updated upstream
             : html`<div class="rk-3" @click=${this.setFavorite}>
+=======
+            : html`<div class="rk-3">
+>>>>>>> Stashed changes
                 <fa-icon
                   @click=${this.addMarginSlider}
                   class="fa fa-heart"
                 ></fa-icon>
               </div>`}
         </div>
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
       </div>
     </div>`;
   }
