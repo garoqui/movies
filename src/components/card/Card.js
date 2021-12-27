@@ -1,10 +1,7 @@
 import { LitElement, html, css } from 'lit';
 import { Router } from '@vaadin/router';
 
-//redux
-import { connect } from 'pwa-helpers';
-import { store } from '../../redux/store.js';
-import { addFavorite } from '../../redux/actions.js';
+
 
 import { MOVIESIMGURLW500 } from '../../constants/api.js';
 import 'fa-icons';
@@ -12,7 +9,7 @@ import 'fa-icons';
 // components
 import '../ranking/app-ranking.js';
 
-export class Card extends connect(store)(LitElement) {
+export class Card extends LitElement {
   constructor() {
     super();
     this.item = {};
@@ -136,22 +133,30 @@ export class Card extends connect(store)(LitElement) {
         </div>
         <div>
           ${this.isFavorite(this.item)
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             ? html` <div class="rk-3" @click=${this.setFavorite}>
 =======
             ? html` <div class="rk-3" >
 >>>>>>> Stashed changes
+=======
+            ? html` <div class="rk-3" >
+>>>>>>> 5842f1b41f92856df1c6d7ce4e40553a998c05fa
                 <fa-icon
                   @click=${this.addMarginSlider}
                   class="fa fa-heart  isfavorite"
                 ></fa-icon>
                 <div></div>
               </div>`
+<<<<<<< HEAD
 <<<<<<< Updated upstream
             : html`<div class="rk-3" @click=${this.setFavorite}>
 =======
             : html`<div class="rk-3">
 >>>>>>> Stashed changes
+=======
+            : html`<div class="rk-3" >
+>>>>>>> 5842f1b41f92856df1c6d7ce4e40553a998c05fa
                 <fa-icon
                   @click=${this.addMarginSlider}
                   class="fa fa-heart"
