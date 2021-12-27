@@ -63,14 +63,6 @@ export class Card extends LitElement {
     this.favorites = state.reducer.favorites;
   }
 
-  isFavorite(item) {
-    const resu = this.favorites.find(favorite => favorite.task.id === item.id);
-    if (resu) {
-      return true;
-    }
-    return false;
-  }
-
   render() {
     // eslint-disable-next-line lit-a11y/click-events-have-key-events
     return html`<div class="container-card" @click=${this.goDetail}>
@@ -87,22 +79,6 @@ export class Card extends LitElement {
         <div class="rk-1">${this.item.vote_average}</div>
         <div class="rk-2">
           <app-ranking .rate=${this.item.vote_average}></app-ranking>
-        </div>
-        <div>
-          ${this.isFavorite(this.item)
-            ? html` <div class="rk-3">
-                <fa-icon
-                  @click=${this.addMarginSlider}
-                  class="fa fa-heart  isfavorite"
-                ></fa-icon>
-                <div></div>
-              </div>`
-            : html`<div class="rk-3">
-                <fa-icon
-                  @click=${this.addMarginSlider}
-                  class="fa fa-heart"
-                ></fa-icon>
-              </div>`}
         </div>
       </div>
     </div>`;
