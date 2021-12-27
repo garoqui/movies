@@ -1,7 +1,8 @@
+/* eslint-disable lit-a11y/click-events-have-key-events */
 import { LitElement, html, css } from 'lit';
 import { Router } from '@vaadin/router';
 
-//redux
+// redux
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store.js';
 import { addFavorite } from '../../redux/actions.js';
