@@ -40,7 +40,8 @@ export class Home extends LitElement {
     this.mostPopular = popularListMovies
       .slice(0, 2)
       .concat(popularListTV.slice(0, 2));
-      console.log("update")
+
+     
   }
 
   render() {
@@ -54,8 +55,6 @@ export class Home extends LitElement {
 
   getSearch(e){
     this.search = e.detail
-    console.log(e)
-    console.log(this.search)
   }
 
   test(e){
