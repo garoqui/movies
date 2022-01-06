@@ -56,6 +56,8 @@ export class Search extends LitElement {
         composed: true,
       });
       this.dispatchEvent(event);
+
+     
     }
   }
 }

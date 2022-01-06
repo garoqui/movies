@@ -1,3 +1,4 @@
+/* eslint-disable no-unneeded-ternary */
 import { html } from 'lit';
 import { fixture, expect } from '@open-wc/testing';
 
@@ -11,10 +12,27 @@ describe('NavBar', () => {
 
   it('renders a img', () => {
     const img = element.shadowRoot.querySelector('img');
-    expect(img).to.exist;    
+    expect(img).to.exist;
   });
 
-  it('passes the a11y audit', async () => {
-    await expect(element).shadowDom.to.be.accessible();
+  it('remove token in localstorage', async () => {
+    // await element.startSesion();
+    await element.closeSesion();
+    const token = localStorage.getItem('token');
+    expect(token).to.equal(null);
   });
+
+  it('start sesion ok', async () => {
+    await element.startSesion();
+    // await element.closeSesion();
+    const token = localStorage.getItem('token') ? true : false;
+    console.log(token)
+    expect(token).to.equal(true);
+  });
+
+  // testing a funciones
+  // it('suma works', async () => {
+  //   const resultado = await element.suma(3, 3);
+  //   expect(resultado).to.equal(2);
+  // });
 });

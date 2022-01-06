@@ -1,7 +1,9 @@
+/* eslint-disable class-methods-use-this */
+/* eslint-disable lit-a11y/click-events-have-key-events */
 import { LitElement, html, css } from 'lit';
 import 'fa-icons';
 
-import {login } from '../../services/auth/auth.js'
+import { login } from '../../services/auth/auth.js';
 
 import '../menu/app-menu.js';
 
@@ -10,6 +12,7 @@ export class Navbar extends LitElement {
     return {
       logo: { type: String },
       menuIsOpen: { type: String },
+      result : { type: String}
     };
   }
 
@@ -41,15 +44,19 @@ export class Navbar extends LitElement {
         padding-right: 30px;
         z-index: 10000;
       }
-      .container-button-menu span{
-          cursor:pointer;
-          padding-left:20px;
-          padding-right:20px;
-          padding: 0px, 20px ,0px, 20px
+      .container-button-menu span {
+        cursor: pointer;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding: 0px, 20px, 0px, 20px;
       }
 
       fa-icon {
         cursor: pointer;
+      }
+
+      #resultado {
+         color:white
       }
     `;
   }
@@ -66,11 +73,15 @@ export class Navbar extends LitElement {
           <img alt="movies logo" src=${this.logo} />
         </div>
         <div class="container-button-menu">
+       
           <!-- eslint-disable-next-line lit-a11y/click-events-have-key-events -->
           <span @click=${this.startSesion}>Iniciar Sesion </span>
           <span @click=${this.closeSesion}> Cerrar Sesion </span>
           <fa-icon class="fas fa-bars" @click=${this.showMenu}></fa-icon>
+        
         </div>
+        <button id="boton" @click=${()=>this.suma(2,3)}>sumar</button>
+        <div id="resultado">${this.result}</div>
       </div>
       <app-menu .showMenu=${this.menuIsOpen}></app-menu>`;
   }
@@ -83,14 +94,18 @@ export class Navbar extends LitElement {
     }
   }
 
+  // suma(a,b) {
+  //   this.result = a+b
+  //   return a+b
+  // }
+
   // eslint-disable-next-line class-methods-use-this
-  async startSesion(){
-    const token = await login().then(res=>res);
-    localStorage.setItem("token",token.request_token)
-    console.log(token)
+  async startSesion() {
+    const token = await login().then(res => res);
+    localStorage.setItem('token', token.request_token);
   }
 
-   closeSesion(){
-      localStorage.removeItem("token")
+  closeSesion() {
+    localStorage.removeItem('token');
   }
 }
