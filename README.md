@@ -8,7 +8,7 @@
 
 ## Quickstart
 
-To get started:
+To get started: -------
 
 ```bash
 npm init @open-wc
