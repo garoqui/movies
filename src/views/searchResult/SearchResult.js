@@ -47,7 +47,6 @@ export class SearchResult extends LitElement {
     const query = params.get('query');
     this.items = await getMulti(query).then(res => res);
     this.resu = await this.changeOrder();
-    console.log(this.resu)
   }
 
   async changeOrder() {

@@ -80,8 +80,6 @@ export class Navbar extends LitElement {
           <fa-icon class="fas fa-bars" @click=${this.showMenu}></fa-icon>
         
         </div>
-        <button id="boton" @click=${()=>this.suma(2,3)}>sumar</button>
-        <div id="resultado">${this.result}</div>
       </div>
       <app-menu .showMenu=${this.menuIsOpen}></app-menu>`;
   }
@@ -94,12 +92,7 @@ export class Navbar extends LitElement {
     }
   }
 
-  // suma(a,b) {
-  //   this.result = a+b
-  //   return a+b
-  // }
 
-  // eslint-disable-next-line class-methods-use-this
   async startSesion() {
     const token = await login().then(res => res);
     localStorage.setItem('token', token.request_token);
