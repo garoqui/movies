@@ -5,7 +5,7 @@ import { Router } from '@vaadin/router';
 // redux
 import { connect } from 'pwa-helpers';
 import { store } from '../../redux/store.js';
-import { addFavorite } from '../../redux/actions.js';
+import { addFavorite, removeFavorite } from '../../redux/actions.js';
 
 import { MOVIESIMGURLW500 } from '../../constants/api.js';
 import 'fa-icons';
@@ -83,8 +83,19 @@ export class Card extends connect(store)(LitElement) {
   }
 
   setFavorite() {
-    store.dispatch(addFavorite(this.item));
-    this.isFavorite(this.item);
+    // this.isFavorite(this.item) ? console.log("si") : console.log("no")
+    if(this.isFavorite(this.item)){
+      console.log("no es")
+      this.deleteFavorite()
+    }else{
+      store.dispatch(addFavorite(this.item));
+    }
+
+    // this.isFavorite(this.item);
+  }
+
+  deleteFavorite(){
+    store.dispatch(removeFavorite(this.item))
   }
 
   stateChanged(state) {

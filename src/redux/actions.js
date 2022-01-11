@@ -16,3 +16,12 @@ export const addFavorite = (task) => {
             complete:false
         }
     }}
+
+export const removeFavorite = (task)=>({
+        type : REMOVE_FAVORITE,
+        todo: {
+            id : nanoid(),
+            task,
+            complete:false
+        }
+    })

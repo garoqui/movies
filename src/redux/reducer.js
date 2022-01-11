@@ -1,25 +1,32 @@
-import { ADD_FAVORITE } from './actions.js'
+import { ADD_FAVORITE, REMOVE_FAVORITE } from './actions.js';
 
 export const OPERATIONS = {
-    ADD_FAVORITE : "addFavorite",
-    REMOVE_FAVORITE : "RemoveFavorite"
-}
+  ADD_FAVORITE: 'addFavorite',
+  REMOVE_FAVORITE: 'RemoveFavorite',
+};
 
 const INITIAL_STATE = {
-    favorites : []
-}
+  favorites: [],
+};
 
-export const reducer = (state = INITIAL_STATE, action)=>{
-    switch(action.type){
-        case ADD_FAVORITE:
-            console.log("favorite")
-            return {
-                ...state,favorites: [...state.favorites, action.todo]
-            }
+export const reducer = (state = INITIAL_STATE, action) => {
+  switch (action.type) {
+    case ADD_FAVORITE:
+      console.log(state);
+      return {
+        ...state,
+        favorites: [...state.favorites, action.todo],
+      };
 
-        default: return state
-    }
-}
+    case REMOVE_FAVORITE:
+      const { id } = action.todo.task;
 
-// export const getFavorites = state => state.todos
-// export const getFavorites = createSelector(getFavorites)
+      return {
+        ...state,
+        favorites: state.favorites.filter(res => res.task.id !== id),
+      };
+
+    default:
+      return state;
+  }
+};
