@@ -7,12 +7,14 @@ export class Series extends LitElement {
     super();
     this.mostPopular = [];
     this.kindOfList = 'series';
+    this.kind = "tv";
   }
 
   static get properties() {
     return {
       mostPopular: { type: Array },
       kindOfList: { type: String },
+      kind : { type : String}
     };
   }
 
@@ -47,7 +49,7 @@ export class Series extends LitElement {
       </div>
       <div class="container">
         ${this.mostPopular.map(
-          res => html`<div><app-card .item=${res}></app-card></div>`
+          res => html`<div><app-card .item=${res} .kind=${this.kind}></app-card></div>`
         )}
       </div>
     `;

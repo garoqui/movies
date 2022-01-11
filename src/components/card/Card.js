@@ -75,17 +75,23 @@ export class Card extends connect(store)(LitElement) {
   }
 
   goDetail() {
-    console.log(this.item);
-    Router.go({
-      pathname: '/detail',
-      search: `?id=${this.item.id}&kind=${this.item.media_type}`,
-    });
+    if(!this.kind){
+      Router.go({
+        pathname: '/detail',
+        search: `?id=${this.item.id}&kind=${this.item.media_type}`,
+      });
+    }else{
+      Router.go({
+        pathname: '/detail',
+        search: `?id=${this.item.id}&kind=${this.kind}`,
+      });
+    }
+    
   }
 
   setFavorite() {
     // this.isFavorite(this.item) ? console.log("si") : console.log("no")
     if(this.isFavorite(this.item)){
-      console.log("no es")
       this.deleteFavorite()
     }else{
       store.dispatch(addFavorite(this.item));
